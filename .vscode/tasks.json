@@ -56,6 +56,7 @@
 			"label": "Build",    //第三个任务的名字叫Build
 			"dependsOrder": "sequence",    //顺序执行依赖项
 			"dependsOn":[    //依赖的两个项为cmake和make
+				"clean",
 				"cmake",    //即第一个任务的label
 				"make"      //即第二个任务的label
 			]

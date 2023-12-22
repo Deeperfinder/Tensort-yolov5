@@ -8,7 +8,7 @@ using namespace std;
 
 class yolov5{
 	public:
-	
+		yolov5();
 		void init();
 		void buildEngine();
 		void preProcess(const string& img_path);
@@ -24,6 +24,7 @@ class yolov5{
 
 		// img 
 		int img_area;
+		std::vector<float> blob;
 		cv::Mat m_resized_img;
 		cv::Mat m_converted_img;
 		cv::Mat m_normalized_img;

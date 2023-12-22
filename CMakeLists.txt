@@ -73,7 +73,7 @@ include_directories(${CUDA_INCLUDE_DIRS})
 set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -std=c++14 -O3 -Xcompiler -fPIC ${CUDA_ARCH_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -O3 -fPIC -use_fast_math")
 
-
+set(CMAKE_BUILD_TYPE "Debug")
 add_executable(YOLOV5 main.cpp)
 target_link_libraries(YOLOV5
                       cudart
