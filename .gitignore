@@ -1,2 +1,4 @@
 /.hypothesis
 /build
+gddi_model.onnx
+images
