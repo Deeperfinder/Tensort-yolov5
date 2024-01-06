@@ -8,9 +8,9 @@
 + nvidia driver 535
 
 1. 本地电脑需要安装nvidia驱动  
-   ``` sudo apt install -y nvidia-driver-535 ```
+``` sudo apt install -y nvidia-driver-535 ```
 
-2.采用简单易部署的docker环境来运行本代码,可参考
+2. 采用简单易部署的docker环境来运行本代码,可参考
 ``` https://github.com/NVIDIA/trt-samples-for-hackathon-cn/tree/master/cookbook ```
 
 3. 下载项目后，运行如下docker命令  
