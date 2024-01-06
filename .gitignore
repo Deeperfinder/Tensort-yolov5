@@ -4,3 +4,4 @@ gddi_model.onnx
 images
 yolov5_person.engine
 yolov5_helmet.engine
+/model

@@ -4,6 +4,11 @@ project(YOLOV5 VERSION 0.1.0 LANGUAGES C CXX)
 include(CTest)
 enable_testing()
 
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -g -O0")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -O0")
+
+
+
 # CUDA
 # 指定CUDA路径
 # 查找CUDA

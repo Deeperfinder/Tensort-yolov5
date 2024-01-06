@@ -36,6 +36,7 @@ struct Object{
 	float prob;
 };
 
+
 class yolov5{
 	public:
 		yolov5(const std::string onnx_path, const std::string engine_path, float initconfThreshold);
@@ -50,9 +51,10 @@ class yolov5{
 
 		void preProcess(const string& img_path);
 		void infer();
-		void postProcess();
-		float letterbox(const cv::Mat& image, int stride, const cv::Scalar& color);
+		std::vector<Object> postProcess();
+		float letterbox(const cv::Mat& image, int stride);
 		void generate_proposal(std::vector<Object> & output_data);
+		void draw_box(std::vector<Object> boxes);
 		// std::shared_ptr<nvinfer1::ICudaEngine> get_shared_engine();   // todo 多个对象复用engine
 
 		cv::Mat convertHWCtoCHW(const cv::Mat& input);
@@ -64,10 +66,17 @@ class yolov5{
 		//model
 		float m_confThreashold;
 		float m_numclass;
+
 		// img 
 		int img_area;
 		std::vector<float> blob;
 		float m_ratio;
+		int letter_top;
+		int letter_bottom;
+		int letter_right;
+		int letter_left;
+
+
 		cv::Mat m_resized_img;
 		cv::Mat m_converted_img;
 		cv::Mat m_normalized_img;
