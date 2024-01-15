@@ -3,12 +3,12 @@
 int main(int, char**){
     std::cout << "[I] Hello, from YOLOV5!\n";
 
-    const std::string onnx_path = "/work/tensorRT-yolov5/Tensort-yolov5/model/gddi_model.onnx";
-    std::string engine_path = "/work/tensorRT-yolov5/Tensort-yolov5/model/yolov5_helmet.engine";
+    const std::string onnx_path = "/work/simple_yolov5_demo/model/gddi_model.onnx";
+    std::string engine_path = "";   //"/work/simple_yolov5_demo/yolov5_helmet.engine";
     float confth = 0.5;
 
     yolov5 yolo(onnx_path, engine_path, confth);
-    const std::string img_path = "/work/tensorRT-yolov5/Tensort-yolov5/helmet2.jpeg";
+    const std::string img_path = "/work/simple_yolov5_demo/helmet2.jpeg";
     std::ifstream img_file(img_path);
     if(!img_file.good()){
         std::cout << "确保图片是否存在！" << std::endl;

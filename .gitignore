@@ -5,3 +5,6 @@ images
 yolov5_person.engine
 yolov5_helmet.engine
 /model
+/calibration/yolov5.cache
+/calibration_image
+/calibration/.hypothesis

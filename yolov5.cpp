@@ -25,7 +25,7 @@ void yolov5::init(const std::string onnx_path, std::string engine_path)
 {
     input_height = 640;
     input_width = 640;
-    bool save_engine = false;
+    bool save_engine = true;
     // 先检查是否有engine_path, 选择加载或者构建engine
     if(engine_path.empty())
     {
@@ -35,7 +35,7 @@ void yolov5::init(const std::string onnx_path, std::string engine_path)
             exit(0);
         }
         else{
-            engine_path = "/work/tensorRT-yolov5/Tensort-yolov5/model/yolov5_helmet.engine";
+            engine_path = "/work/simple_yolov5_demo/model/yolov5_helmet.engine";
             std::cout << "[I] Build engine success" <<std::endl;
         };
         
@@ -195,7 +195,7 @@ bool yolov5::buildEngine(const std::string onnx_path,  bool save_engine)
     if (save_engine)
     {
         nvinfer1::IHostMemory *serialized_model = m_engine->serialize();
-        std::ofstream engineFile("/work/tensorRT-yolov5/Tensort-yolov5/model/yolov5_helmet.engine", std::ios::binary);
+        std::ofstream engineFile("/work/simple_yolov5_demo/model/yolov5_helmet.engine", std::ios::binary);
         if(!engineFile){
             std::cerr << "Cannot open engine file." << std::endl;
             return false;
@@ -204,7 +204,7 @@ bool yolov5::buildEngine(const std::string onnx_path,  bool save_engine)
         engineFile.close();
         // 由于序列化引擎包含权重的必要拷贝，因此不再需要解析器、网络定义、构建器配置和构建器，可以安全地删除： 
         serialized_model->destroy();
-        m_engine->destroy();
+        m_engine.reset();
         network->destroy();
         parser->destroy();
         config->destroy();
